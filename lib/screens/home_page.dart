@@ -279,8 +279,12 @@ class _HomePageState extends State<HomePage> {
 
             //! SECOND PAGE
             Container(
-              color: Colors.blue,
-            ),
+                color: Colors.black,
+                child: Container(
+                  color: Colors.blue,
+                  height: MediaQuery.of(context).size.height - 100,
+                  width: MediaQuery.of(context).size.width - 15,
+                )),
           ])),
     );
   }
