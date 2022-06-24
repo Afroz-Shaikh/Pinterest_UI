@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pinterest_ui/screens/home_page.dart';
 
 class NavbarUI extends StatefulWidget {
@@ -72,31 +73,34 @@ class _NavbarUIState extends State<NavbarUI> {
                     ),
                     Expanded(
                         child: InkWell(
-                      onTap: () {
-                        _selectPage(0);
-                      },
-                      child: Icon(
-                        Icons.home,
-                        color: customColor(0, widget.selectedPageIndex),
-                      ),
-                    )),
+                            onTap: () {
+                              _selectPage(0);
+                            },
+                            child: SvgPicture.asset(
+                              'assets/svgs/home.svg',
+                              color: customColor(0, widget.selectedPageIndex),
+                            )
+                            // Icon(
+                            //   Icons.home,
+                            //   color: customColor(0, widget.selectedPageIndex),
+                            // ),
+                            )),
                     Expanded(
                         child: InkWell(
-                      onTap: () {
-                        _selectPage(1);
-                      },
-                      child: Icon(
-                        Icons.search,
-                        color: customColor(1, widget.selectedPageIndex),
-                      ),
-                    )),
+                            onTap: () {
+                              _selectPage(1);
+                            },
+                            child: SvgPicture.asset(
+                              'assets/svgs/search.svg',
+                              color: customColor(1, widget.selectedPageIndex),
+                            ))),
                     Expanded(
                         child: GestureDetector(
                       onTap: () {
                         _selectPage(2);
                       },
-                      child: Icon(
-                        Icons.message,
+                      child: SvgPicture.asset(
+                        'assets/svgs/msg.svg',
                         color: customColor(2, widget.selectedPageIndex),
                       ),
                     )),
@@ -105,8 +109,8 @@ class _NavbarUIState extends State<NavbarUI> {
                       onTap: () {
                         _selectPage(3);
                       },
-                      child: Icon(
-                        Icons.account_balance,
+                      child: SvgPicture.asset(
+                        'assets/svgs/account.svg',
                         color: customColor(3, widget.selectedPageIndex),
                       ),
                     )),
@@ -132,6 +136,6 @@ Color customColor(int pageIndex, int selectedPageIndex) {
   if (pageIndex == selectedPageIndex) {
     return Colors.white;
   } else {
-    return Colors.red;
+    return Colors.grey.withOpacity(0.5);
   }
 }
